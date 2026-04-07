@@ -4,6 +4,7 @@ import {
   setupModalCloseHandler,
   setupNewTaskModalHandler,
 } from "./ui/modalHandlers.js";
+import { saveTaskChanges, deleteTask } from "./tasks/taskManager.js";
 
 async function initTaskBoard() {
   const tasks = await loadTasksFromStorage();
@@ -11,6 +12,8 @@ async function initTaskBoard() {
   renderTasks(tasks);
   setupModalCloseHandler();
   setupNewTaskModalHandler();
+  saveTaskChanges();
+  deleteTask();
 }
 
 document.addEventListener("DOMContentLoaded", initTaskBoard);

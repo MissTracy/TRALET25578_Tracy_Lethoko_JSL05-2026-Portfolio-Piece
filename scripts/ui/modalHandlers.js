@@ -33,11 +33,11 @@ export function setupNewTaskModalHandler() {
 export function openTaskModal(task) {
   const modal = document.getElementById("task-modal");
 
-  currentTaskId = task.id; //store id
+  modal.dataset.taskId = task.id;
 
   document.getElementById("task-title").value = task.title;
   document.getElementById("task-desc").value = task.description;
   document.getElementById("task-status").value = task.status;
-  
+
   modal.showModal();
 }

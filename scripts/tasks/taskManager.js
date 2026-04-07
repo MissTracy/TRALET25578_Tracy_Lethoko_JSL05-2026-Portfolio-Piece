@@ -29,3 +29,54 @@ export async function addNewTask() {
   resetForm();
   overlay.close();
 }
+
+
+
+export function saveTaskChanges() {
+  const saveBtn = document.getElementById("save-task-btn");
+  const modal = document.getElementById("task-modal");
+
+  saveBtn.addEventListener("click", async () => {
+    const taskId = modal.dataset.taskId; 
+    if (!taskId) return;
+
+    const title = document.getElementById("task-title").value.trim();
+    const description = document.getElementById("task-desc").value.trim();
+    const status = document.getElementById("task-status").value;
+
+    if (!title) return alert("Title cannot be empty.");
+
+    const tasks = await loadTasksFromStorage();
+    const updatedTasks = tasks.map((task) =>
+      task.id === Number(taskId)
+        ? { ...task, title, description, status }
+        : task
+    );
+
+    saveTasksToStorage(updatedTasks);
+    clearExistingTasks();
+    renderTasks(updatedTasks);
+    modal.close();
+  });
+}
+
+
+export function deleteTask() {
+  const deleteBtn = document.getElementById("delete-task-btn");
+  const modal = document.getElementById("task-modal");
+
+  deleteBtn.addEventListener("click", async () => {
+    const taskId = modal.dataset.taskId;
+    if (!taskId) return;
+
+    if (!confirm("Are you sure you want to delete this task?")) return;
+
+    const tasks = await loadTasksFromStorage();
+    const updatedTasks = tasks.filter(task => task.id !== Number(taskId));
+
+    saveTasksToStorage(updatedTasks);
+    clearExistingTasks();
+    renderTasks(updatedTasks);
+    modal.close();
+  });
+}
