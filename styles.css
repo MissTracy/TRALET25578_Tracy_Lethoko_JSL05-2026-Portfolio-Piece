@@ -460,6 +460,10 @@ input:checked + .slider::before {
   transform: translateX(20px);
 }
 
+.dark-mode .header-board-name {
+  color: white;
+}
+
 /* =======================
 DARK MODE
 ======================= */
@@ -533,6 +537,8 @@ DARK MODE
   .button-group .submit-btn {
     margin: 5px 0;
   }
+
+  
 }
 
 
