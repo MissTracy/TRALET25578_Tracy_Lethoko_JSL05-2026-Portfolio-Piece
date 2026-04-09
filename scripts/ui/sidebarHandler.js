@@ -4,11 +4,18 @@
  
 export function themeToggle() {
     const toggle = document.getElementById("toggle-theme-btn");
+    const logo = document.getElementById("logo");
   
-    if (!toggle) return; // safety check
+    if (!toggle || !logo) return; // safety check
   
     toggle.addEventListener("change", () => {
-      document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.toggle("dark-mode");
+        
+        if (isDark) {
+            logo.src = "./assets/logo-dark.svg";
+      } else {
+        logo.src = "./assets/logo-light.svg";
+      }
     });
   }
   

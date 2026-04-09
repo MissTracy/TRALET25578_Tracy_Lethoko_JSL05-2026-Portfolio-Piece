@@ -11,7 +11,7 @@ export function loadTasksFromStorage() {
     return JSON.parse(stored);
   } catch (err) {
     console.error("Error parsing tasks:", err);
-    return null;
+    return null; 
   }
 }
 
