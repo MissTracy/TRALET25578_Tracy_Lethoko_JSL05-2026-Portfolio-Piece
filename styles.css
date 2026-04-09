@@ -83,8 +83,46 @@ h4 {
   font-weight: bold;
   cursor: pointer;
   overflow: hidden; /* Prevents overflowed text/icons from showing */
+} 
+
+.toggle-sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f4f7fd; 
+  color: var(--primary-btn-color);
+  border: none;
+  border-radius: 0 100px 100px 0; /* Pill shape only on right side */
+  height: 48px;
+  width: 276px;
+  padding: 28px 12px 28px 50px;
+  font-size: 0.9375rem;
+  font-weight: bold;
+  cursor: pointer;
+  /* margin-top: auto;  */
+  font-family: inherit;
+  overflow: hidden;
+  position: fixed;
+  bottom: 20px;
+  left: 0;
 }
 
+
+
+.toggle-sidebar-btn.collapsed {
+  width: 60px; 
+  padding: 0;
+  justify-content: center;
+  background-color: var(--primary-btn-color);
+  color: #fff;
+  border-radius: 0 100px 100px 0; /* Pill shape only on right side */
+
+}
+
+
+.hide-sidebar {
+  display: none;
+}
 /* ===============
    Main Layout
 ================ */
@@ -461,6 +499,13 @@ textarea {
   margin-top: 20px;
 }
 
+/* .side-bar {
+  width: 100%;
+  padding: 25px;
+  background-color: coral;
+  color: white;
+  font-size: 25px;
+} */
 /******** Mobile ********/
 @media screen and (max-width: 576px) {
   .card-column-main {
