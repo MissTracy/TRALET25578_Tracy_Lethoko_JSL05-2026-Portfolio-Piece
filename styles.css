@@ -407,6 +407,136 @@ textarea {
   resize: vertical;
 }
 
+/* Toggle*/
+
+.theme-toggle {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  background-color: #f4f7fd; 
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.switch {
+  position: relative;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background-color: var(--primary-btn-color); 
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* circle move when toggle*/
+input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+/* =======================
+DARK MODE
+======================= */
+
+.dark-mode {
+  background-color: #20212c;
+  color: #ffffff;
+}
+
+/* Sidebar & header */
+.dark-mode .side-bar,
+.dark-mode header {
+  background-color: #2b2c37;
+}
+
+/* Tasks & modal */
+.dark-mode .task-div,
+.dark-mode #task-modal {
+  background-color: #2b2c37;
+  color: white;
+}
+
+
+/* container becomes purple */
+.dark-mode .theme-toggle {
+  background-color: var(--primary-btn-color);
+}
+
+/* switch becomes black */
+.dark-mode .slider {
+  background-color: #000;
+}
+
+/* .toggle-sidebar-btn {
+  order: 2;            
+} */
+
+/******** Mobile ********/
+@media screen and (max-width: 576px) {
+  .card-column-main {
+    grid-template-columns: minmax(
+      0,
+      380px
+    ); /* Stack columns in single column */
+  }
+
+  .column-div {
+    padding: 24px;
+  }
+
+  #add-new-task-btn {
+    font-size: 0;
+    padding: 12px;
+  }
+
+  #add-new-task-btn::before {
+    content: "+";
+    font-size: 18px;
+    font-weight: 800;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .button-group {
+    flex-direction: column; 
+    align-items: stretch;
+  }
+
+  .button-group .submit-btn {
+    margin: 5px 0;
+  }
+}
+
+
+
 /* ========================
    Responsive Styles
 ======================== */
@@ -499,48 +629,5 @@ textarea {
   margin-top: 20px;
 }
 
-/* .side-bar {
-  width: 100%;
-  padding: 25px;
-  background-color: coral;
-  color: white;
-  font-size: 25px;
-} */
-/******** Mobile ********/
-@media screen and (max-width: 576px) {
-  .card-column-main {
-    grid-template-columns: minmax(
-      0,
-      380px
-    ); /* Stack columns in single column */
-  }
 
-  .column-div {
-    padding: 24px;
-  }
-
-  #add-new-task-btn {
-    font-size: 0;
-    padding: 12px;
-  }
-
-  #add-new-task-btn::before {
-    content: "+";
-    font-size: 18px;
-    font-weight: 800;
-    padding-left: 14px;
-    padding-right: 14px;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .button-group {
-    flex-direction: column; 
-    align-items: stretch;
-  }
-
-  .button-group .submit-btn {
-    margin: 5px 0;
-  }
-}
 

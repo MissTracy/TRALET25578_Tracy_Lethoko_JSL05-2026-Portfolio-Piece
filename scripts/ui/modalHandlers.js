@@ -30,22 +30,33 @@ export function setupNewTaskModalHandler() {
   });
 }
 
-export function sidebarToggle() {
-  const sidebar = document.getElementById("side-bar-div");
-  const toggleBtn = document.getElementById("toggle-sidebar-btn");
+// export function themeToggle() {
+//   const toggle = document.getElementById("toggle-theme-btn");
 
-  toggleBtn.addEventListener("click", () => {
-    const isHidden = sidebar.classList.toggle("hide-sidebar");
+//   toggle.addEventListener("change", () => {
+//     document.body.classList.toggle("dark-mode");
+//   });
+// }
 
-    if (isHidden) {
-      toggleBtn.classList.add("collapsed");
-      toggleBtn.innerHTML = "👀";
-    } else {
-      toggleBtn.classList.remove("collapsed");
-      toggleBtn.textContent = "Hide Sidebar";
-    }
-  });
-}
+
+// export function sidebarToggle() {
+//   const sidebar = document.getElementById("side-bar-div");
+//   const toggleBtn = document.getElementById("toggle-sidebar-btn");
+
+//   toggleBtn.addEventListener("click", () => {
+//     const isHidden = sidebar.classList.toggle("hide-sidebar");
+
+//     if (isHidden) {
+//       toggleBtn.classList.add("collapsed");
+//       toggleBtn.innerHTML = "👀";
+//     } else {
+//       toggleBtn.classList.remove("collapsed");
+//       toggleBtn.textContent = "Hide Sidebar";
+//     }
+//   });
+// }
+
+
 
 export function openTaskModal(task) {
   const modal = document.getElementById("task-modal");

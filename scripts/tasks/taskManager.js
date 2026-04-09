@@ -4,6 +4,8 @@ import {
 } from "../utils/localStorage.js";
 import { clearExistingTasks, renderTasks } from "../ui/render.js";
 import { resetForm } from "./formUtils.js";
+import { fetchTasksFromAPI } from "../utils/api.js";
+
 
 export async function addNewTask() {
   const title = document.getElementById("title-input").value.trim();
@@ -13,14 +15,14 @@ export async function addNewTask() {
 
   if (!title) return;
 
-  const tasks = await loadTasksFromStorage();
+  const tasks = await getTasks();
   const newTask = {
     id: tasks.length ? Math.max(...tasks.map((t) => t.id)) + 1 : 1,
     title,
     description,
     status,
   };
-
+  
   const updatedTasks = [...tasks, newTask];
   saveTasksToStorage(updatedTasks);
 
@@ -28,6 +30,23 @@ export async function addNewTask() {
   renderTasks(updatedTasks);
   resetForm();
   overlay.close();
+}
+
+
+/**
+ * Get tasks from localStorage or API
+ * Uses localStorage first
+ * If empty, fetches from API and saves it
+ */
+export async function getTasks() {
+  let tasks = loadTasksFromStorage();
+
+  if (!tasks || tasks.length === 0) {
+    tasks = await fetchTasksFromAPI();
+    saveTasksToStorage(tasks);
+  }
+
+  return tasks;
 }
 
 
@@ -46,7 +65,7 @@ export function saveTaskChanges() {
 
     if (!title) return alert("Title cannot be empty.");
 
-    const tasks = await loadTasksFromStorage();
+    const tasks = await getTasks();
     const updatedTasks = tasks.map((task) =>
       task.id === Number(taskId)
         ? { ...task, title, description, status }
@@ -71,7 +90,7 @@ export function deleteTask() {
 
     if (!confirm("Are you sure you want to delete this task?")) return;
 
-    const tasks = await loadTasksFromStorage();
+    const tasks = await getTasks();
     const updatedTasks = tasks.filter(task => task.id !== Number(taskId));
 
     saveTasksToStorage(updatedTasks);
@@ -80,3 +99,4 @@ export function deleteTask() {
     modal.close();
   });
 }
+
