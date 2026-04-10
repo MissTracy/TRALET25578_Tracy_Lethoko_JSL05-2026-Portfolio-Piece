@@ -166,6 +166,7 @@ header {
   flex-direction: column;
   padding-left: 35px;
   box-sizing: border-box;
+  padding-left: 100px;
 }
 
 .card-column-main {
