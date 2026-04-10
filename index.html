@@ -21,14 +21,20 @@
   <body>
     <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
     <nav class="side-bar" id="side-bar-div">
+     
       <div id="side-logo-div">
         <img id="logo" src="./assets/logo-light.svg" alt="logo-light" />
       </div>
 
-      <div class="boards-nav-links-div" id="boards-nav-links-div">
+      <div class="boards-header">
         <h4 id="headline-sidepanel">ALL BOARDS (1)</h4>
+        <button id="close-sidebar-btn" class="close-sidebar-btn">&times;</button>
+      </div>
+      
+      <div class="boards-nav-links-div">
         <button class="board-btn">Launch Career</button>
       </div>
+      
       <div class="sidebar-footer">
         <div class="theme-toggle">
           <span>🌞</span>
@@ -39,6 +45,10 @@
           <span>🌚</span>
         </div> 
       </div> 
+
+      <!-- <button id="toggle-sidebar-btn" class="toggle-sidebar-btn">
+        Hide Sidebar
+      </button> -->
     </nav>
 
     <button id="toggle-sidebar-btn" class="toggle-sidebar-btn">
