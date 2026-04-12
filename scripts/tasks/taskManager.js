@@ -37,7 +37,7 @@ export async function addNewTask() {
  * Get tasks from localStorage or API
  * Uses localStorage first
  * If empty, fetches from API and saves it
- */
+ */ 
 export async function getTasks() {
   let tasks = loadTasksFromStorage();
 

@@ -528,9 +528,7 @@ body.sidebar-open {
 .dark-mode.sidebar-open {
   background-color: #20212C;
 }
-/* .toggle-sidebar-btn {
-  order: 2;            
-} */
+
 
 /* ========================
    Responsive Styles
