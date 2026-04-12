@@ -2,8 +2,11 @@
 
 A responsive Kanban task management application built with vanilla JavaScript, HTML, and CSS.
 
-## 🌐 Live Demo
+## 🌐 Live App Demo
 *https://tracyskanban.netlify.app/ — Netlify*
+
+## 👩🏽‍💻 Project Presenation Link
+*https://youtu.be/8FFnvpSWjog*
 
 ---
 
